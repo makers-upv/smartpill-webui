@@ -1,0 +1,8 @@
+{
+  "name": "smartpill-webui",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "d9a6fef5"
+}
