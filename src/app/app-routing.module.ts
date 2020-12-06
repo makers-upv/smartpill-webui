@@ -18,6 +18,18 @@ const routes: Routes = [
   {
     path: 'page-status',
     loadChildren: () => import('./page-status/page-status.module').then( m => m.PageStatusPageModule)
+  },
+  {
+    path: 'page-edit-toma',
+    loadChildren: () => import('./page-edit-toma/page-edit-toma.module').then( m => m.PageEditTomaPageModule)
+  },
+  {
+    path: 'page-edit-pill',
+    loadChildren: () => import('./page-edit-pill/page-edit-pill.module').then( m => m.PageEditPillPageModule)
+  },
+  {
+    path: 'page-log',
+    loadChildren: () => import('./page-log/page-log.module').then( m => m.PageLogPageModule)
   }
 ];
 

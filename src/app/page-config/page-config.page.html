@@ -11,17 +11,23 @@
   <ion-card>
     <img src="https://fotos02.laopiniondemurcia.es/mmp/2020/03/30/690x278/ibuprofeno.jpg" />
     <ion-card-header>
+       <ion-button routerLink="/page-edit-pill" shape="round" style="float: right;">
+        <ion-icon slot="start" name="create"></ion-icon>
+        Edit
+      </ion-button>
       <ion-card-subtitle>Pill deposito 1</ion-card-subtitle>
       <ion-card-title>Ibuprofeno</ion-card-title>
+
     </ion-card-header>
   
     <ion-card-content>
-      <p>Gramos: 200gr</p>
+      
+      <p>Tamaño: 1000mg</p>
       <p>Marca: Cinfa</p>
       <div>
         <hr>
         <h2>Tomas:</h2>
-        <ion-item href="#">
+        <ion-item routerLink="/page-edit-toma">
           <ion-icon name="sunny" slot="start"></ion-icon>
           <ion-label>L-V por la Mañana</ion-label>
         </ion-item>
@@ -37,27 +43,41 @@
     </ion-card-content>
   </ion-card>
 
+
   <ion-card>
-    <img src="https://static.dw.com/image/19132418_304.jpg" alt="" />
+    <img src="https://static.dw.com/image/19132418_304.jpg" />
     <ion-card-header>
+       <ion-button routerLink="/page-edit-pill" shape="round" style="float: right;">
+        <ion-icon slot="start" name="create"></ion-icon>
+        Edit
+      </ion-button>
       <ion-card-subtitle>Pill deposito 2</ion-card-subtitle>
       <ion-card-title>Paracetamol</ion-card-title>
+
     </ion-card-header>
   
     <ion-card-content>
-      <h2>Tomas:</h2>
-      <ion-item href="#">
-        <ion-icon name="sunny" slot="start"></ion-icon>
-        <ion-label>L-V por la Mañana</ion-label>
-      </ion-item>
-      <ion-item href="#">
-        <ion-icon name="fast-food" slot="start"></ion-icon>
-        <ion-label>L-V por la Tarde</ion-label>
-      </ion-item>
-      <ion-item href="#">
-        <ion-icon name="moon" slot="start"></ion-icon>
-        <ion-label>S-D por la Noche</ion-label>
-      </ion-item>
+      
+      <p>Tamaño: 500mg</p>
+      <p>Marca: Generico</p>
+      <div>
+        <hr>
+        <h2>Tomas:</h2>
+        <ion-item routerLink="/page-edit-toma">
+          <ion-icon name="sunny" slot="start"></ion-icon>
+          <ion-label>L-V por la Mañana</ion-label>
+        </ion-item>
+        <ion-item href="#">
+          <ion-icon name="fast-food" slot="start"></ion-icon>
+          <ion-label>L-V por la Tarde</ion-label>
+        </ion-item>
+        <ion-item href="#">
+          <ion-icon name="moon" slot="start"></ion-icon>
+          <ion-label>S-D por la Noche</ion-label>
+        </ion-item>
+      </div>
     </ion-card-content>
   </ion-card>
+
+  
 </ion-content>

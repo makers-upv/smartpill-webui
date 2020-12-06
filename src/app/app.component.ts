@@ -18,8 +18,8 @@ export class AppComponent implements OnInit {
       icon: 'home'
     },
     {
-      title: 'Log',
-      url: '/log',
+      title: 'History',
+      url: '/page-log',
       icon: 'bar-chart'
     },
     {
