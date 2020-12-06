@@ -10,9 +10,9 @@
 <ion-content>
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle>06/11/2020</ion-card-subtitle>
+      <ion-card-subtitle>{{ time | date: 'dd/MM/yyyy' }}</ion-card-subtitle>
       <ion-card-title style="text-align: center; font-size: 500%">
-        12:00
+        {{ time | date: 'HH:mm' }}
       </ion-card-title>
     </ion-card-header>
 
