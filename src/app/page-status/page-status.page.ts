@@ -14,7 +14,6 @@ export class PageStatusPage implements OnInit {
   ngOnInit() {
     this.timer = setInterval(() => {
       this.time = new Date();
-      console.log(this.time);
     }, 1000);
   }
 

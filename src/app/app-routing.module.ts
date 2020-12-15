@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'page-status',
+    redirectTo: 'page-login',
     pathMatch: 'full'
   },
   {
@@ -30,7 +30,12 @@ const routes: Routes = [
   {
     path: 'page-log',
     loadChildren: () => import('./page-log/page-log.module').then( m => m.PageLogPageModule)
-  }
+  },
+  {
+    path: 'page-login',
+    loadChildren: () => import('./page-login/page-login.module').then( m => m.PageLoginPageModule)
+  },
+
 ];
 
 @NgModule({
