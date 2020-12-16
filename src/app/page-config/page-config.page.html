@@ -28,9 +28,13 @@
               <ion-icon slot="start" name="create"></ion-icon>
               Edit
             </ion-button>
+            <ion-button (click)="removePost(post.id)" color="danger" shape="round">
+              <ion-icon slot="start" name="create"></ion-icon>
+              Delete
+            </ion-button>
           </div>
           <ion-card-subtitle>Deposit {{post.deposit}}</ion-card-subtitle>
-          <ion-card-title>Pill type: {{post.pill}}</ion-card-title>
+          <ion-card-title>{{post.pill}}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
           <div>

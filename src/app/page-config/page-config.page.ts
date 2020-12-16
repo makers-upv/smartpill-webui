@@ -37,12 +37,12 @@ export class PageConfigPage implements OnInit {
   async removePost(id: string) {
     const alert = await this.alertController.create({
       header: "Alert",
-      subHeader: "Subtitle",
-      message: "This is an alert message.",
+      subHeader: "Are you sure you want to delete this deposit?",
+      message: "You won't be able to recover it.",
       buttons: [
         "Cancel",
         {
-          text: "Okay",
+          text: "Yes",
           handler: () => {
             this.postService.removePost(id).subscribe(
               (res) => {
