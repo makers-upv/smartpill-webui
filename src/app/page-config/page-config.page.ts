@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from "@ionic/angular";
+import { PostService, Post } from "../services/post.service";
 
 @Component({
   selector: 'app-page-config',
@@ -6,10 +8,54 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-config.page.scss'],
 })
 export class PageConfigPage implements OnInit {
+  posts: Post[] = [];
 
-  constructor() { }
+  API = 'http://localhost:1337/pills';
 
-  ngOnInit() {
+  constructor(
+    private postService: PostService,
+    private alertController: AlertController
+  ) {}
+
+  loadPosts() {
+    this.postService.getPosts().subscribe(
+      (res) => {
+        this.posts = res;
+      },
+      (err) => console.log(err)
+    );
   }
 
+  ngOnInit() {
+    this.loadPosts();
+  }
+
+  ionViewWillEnter() {
+    this.loadPosts();
+  }
+
+  async removePost(id: string) {
+    const alert = await this.alertController.create({
+      header: "Alert",
+      subHeader: "Subtitle",
+      message: "This is an alert message.",
+      buttons: [
+        "Cancel",
+        {
+          text: "Okay",
+          handler: () => {
+            this.postService.removePost(id).subscribe(
+              (res) => {
+                console.log(res);
+                this.loadPosts();
+              },
+              (err) => console.log(err)
+            );
+          },
+        },
+      ],
+    });
+
+    await alert.present();
+  }
 }

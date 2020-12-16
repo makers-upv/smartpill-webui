@@ -8,12 +8,14 @@ import { PageConfigPageRoutingModule } from './page-config-routing.module';
 
 import { PageConfigPage } from './page-config.page';
 
+import { HttpClient, HttpClientModule } from "@angular/common/http";
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PageConfigPageRoutingModule
+    PageConfigPageRoutingModule,HttpClientModule,
   ],
   declarations: [PageConfigPage]
 })
