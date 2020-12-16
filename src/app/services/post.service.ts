@@ -3,8 +3,8 @@ import { HttpClient } from "@angular/common/http";
 
 export interface Post {
   id?: string;
-  title: string;
-  subtitle?: string;
+  pill: string;
+  deposit?: string;
   weight: string;
   image?: {
     formats: {
@@ -28,9 +28,10 @@ export class PostService {
     return this.http.get<Post[]>(this.API);
   }
 
-  createPost(title: string, weight: string) {
+  createPost(pill: string, deposit: string, weight: string) {
     return this.http.post<Post[]>(this.API, {
-      title,
+      pill,
+      deposit,
       weight,
     });
   }

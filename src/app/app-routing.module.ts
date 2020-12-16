@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'page-login',
     loadChildren: () => import('./page-login/page-login.module').then( m => m.PageLoginPageModule)
   },
+  {
+    path: 'pill/edit/:postId',
+    loadChildren:() => import('./page-edit-pill/page-edit-pill.module').then( m => m.PageEditPillPageModule)
+  },
 
 ];
 
