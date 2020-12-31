@@ -54,4 +54,8 @@ export class PostService {
   updatePost(id: string, post: Post) {
     return this.http.put(`${this.API}/${id}`, post);
   }
+
+  saveSchedule(id: string, post: Post) {
+    return this.http.put(`${this.API}/${id}`, post);
+  }
 }

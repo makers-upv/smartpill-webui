@@ -22,7 +22,7 @@
           <ion-list>
             <ion-item>
               <ion-label>Monday</ion-label>
-              <ion-toggle [(ngModel)]="monday"></ion-toggle>
+              <ion-toggle [(ngModel)]="monday" (ionChange)="change()"></ion-toggle>
             </ion-item>
             <ion-item>
               <ion-label>Tuesday</ion-label>
@@ -49,7 +49,7 @@
               <ion-toggle [(ngModel)]="sunday"></ion-toggle>
             </ion-item>
           </ion-list>
-          <ion-button expand="full" (click)="editing? updatePost(): savePost()" class="ion-margin-top">
+          <ion-button expand="full" (click)="editing? updateSchedule(): saveSchedule()" class="ion-margin-top">
             {{editing ? 'Update': 'Submit'}}
           </ion-button>
         </ion-card-content>

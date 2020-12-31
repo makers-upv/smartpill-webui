@@ -1,6 +1,7 @@
+import { Router, ActivatedRoute } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
 import { PostService, Post } from "../services/post.service";
-import { Router, ActivatedRoute } from "@angular/router";
+
 
 @Component({
   selector: 'app-page-edit-dosis',
@@ -8,7 +9,7 @@ import { Router, ActivatedRoute } from "@angular/router";
   styleUrls: ['./page-edit-dosis.page.scss'],
 })
 export class PageEditDosisPage implements OnInit {
-  post: Post = {
+ post: Post = {
     monday: false,
     tuesday: false,
     wednesday: false,
@@ -16,10 +17,45 @@ export class PageEditDosisPage implements OnInit {
     friday: false,
     saturday: false,
     sunday: false,
-  };
-  constructor() { }
+  }; 
+
+  editing = false;
+
+  constructor(private postService: PostService,
+    private router: Router,
+    private actiavtedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.actiavtedRoute.paramMap.subscribe((paramMap) => {
+      if (paramMap.get("postId")) {
+        this.postService
+          .getPostById(paramMap.get("postId"))
+          .subscribe((res) => {
+            this.post = res;
+          });
+      }
+    });
   }
 
+    change(){
+      console.log(this.post.monday);
+    }
+    
+  saveSchedule(){
+    this.postService
+      .saveSchedule(this.post.id, {
+        monday: this.post.monday,
+        tuesday: this.post.tuesday,
+        wednesday: this.post.wednesday,
+        thursday: this.post.thursday,
+        friday: this.post.friday,
+        saturday: this.post.saturday,
+        sunday: this.post.sunday,
+      })
+      .subscribe((res) => {
+        console.log(res);
+        this.editing = false;
+        this.router.navigate(["/page-config"]);
+      });
+  }
 }
