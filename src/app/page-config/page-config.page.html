@@ -23,16 +23,18 @@
       <ion-card>
         <img src="https://fotos02.laopiniondemurcia.es/mmp/2020/03/30/690x278/ibuprofeno.jpg" />
         <ion-card-header>
+          <ion-list>
           <div style="float: right;">
             <ion-button [routerLink]="['/', 'pill','edit', post.id]" shape="round">
               <ion-icon slot="start" name="create"></ion-icon>
               Edit
             </ion-button>
             <ion-button (click)="removePost(post.id)" color="danger" shape="round">
-              <ion-icon slot="start" name="create"></ion-icon>
+              <ion-icon slot="start" name="trash"></ion-icon>
               Delete
             </ion-button>
           </div>
+        </ion-list>
           <ion-card-subtitle>Deposit {{post.deposit}}</ion-card-subtitle>
           <ion-card-title>{{post.pill}}</ion-card-title>
         </ion-card-header>
