@@ -19,7 +19,6 @@ export class PageEditDosisPage implements OnInit {
     sunday: false,
   }; 
 
-  editing = false;
 
   constructor(private postService: PostService,
     private router: Router,
@@ -62,7 +61,6 @@ export class PageEditDosisPage implements OnInit {
       })
       .subscribe((res) => {
         console.log(res);
-        this.editing = false;
         this.router.navigate(["/page-config"]);
       });
   }

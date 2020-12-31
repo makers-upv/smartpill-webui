@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="page-config"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ editing ? 'Update': 'Create New'}} Schedule</ion-title>
+    <ion-title>Your Schedule</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,9 +14,7 @@
       <ion-card class="ion-padding">
         <ion-card-header>
           {{editing? 
-          'Update Your':
-          'Create your'
-          }} Schedule
+          Your Schedule
         </ion-card-header>
         <ion-card-content>
           <ion-list>
@@ -50,7 +48,7 @@
             </ion-item>
           </ion-list>
           <ion-button expand="full" (click)="editing? updateSchedule(): saveSchedule()" class="ion-margin-top">
-            {{editing ? 'Update': 'Submit'}}
+            'Submit'
           </ion-button>
         </ion-card-content>
 
