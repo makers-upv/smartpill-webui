@@ -29,6 +29,10 @@
               <ion-icon slot="start" name="create"></ion-icon>
               Edit
             </ion-button>
+            <ion-button [routerLink]="['/', 'pill','schedule', post.id]" shape="round">
+              <ion-icon slot="start" name="create"></ion-icon>
+              Schedule
+            </ion-button>
             <ion-button (click)="removePost(post.id)" color="danger" shape="round">
               <ion-icon slot="start" name="trash"></ion-icon>
               Delete

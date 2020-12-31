@@ -20,10 +20,6 @@ const routes: Routes = [
     loadChildren: () => import('./page-status/page-status.module').then( m => m.PageStatusPageModule)
   },
   {
-    path: 'page-edit-toma',
-    loadChildren: () => import('./page-edit-toma/page-edit-toma.module').then( m => m.PageEditTomaPageModule)
-  },
-  {
     path: 'page-edit-pill',
     loadChildren: () => import('./page-edit-pill/page-edit-pill.module').then( m => m.PageEditPillPageModule)
   },
@@ -38,10 +34,17 @@ const routes: Routes = [
   {
     path: 'pill/edit/:postId',
     loadChildren:() => import('./page-edit-pill/page-edit-pill.module').then( m => m.PageEditPillPageModule)
-  },  {
+  },
+  {
     path: 'page-edit-dosis',
     loadChildren: () => import('./page-edit-dosis/page-edit-dosis.module').then( m => m.PageEditDosisPageModule)
   },
+  {
+    path: 'pill/schedule/:postId',
+    loadChildren:() => import('./page-edit-dosis/page-edit-dosis.module').then( m => m.PageEditDosisPageModule)
+  },
+
+
 
 
 ];

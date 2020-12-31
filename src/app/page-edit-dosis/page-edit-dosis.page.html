@@ -1,9 +1,63 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>page-edit-dosis</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="page-config"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ editing ? 'Update': 'Create New'}} Schedule</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-row>
+    <ion-col size-md="6" offset-md="3">
+      <ion-card class="ion-padding">
+        <ion-card-header>
+          {{editing? 
+          'Update Your':
+          'Create your'
+          }} Schedule
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item>
+              <ion-label>Monday</ion-label>
+              <ion-toggle [(ngModel)]="monday"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Tuesday</ion-label>
+              <ion-toggle [(ngModel)]="tuesday"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Wednesday</ion-label>
+              <ion-toggle [(ngModel)]="wednesday"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Thursday</ion-label>
+              <ion-toggle [(ngModel)]="thursday"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Friday</ion-label>
+              <ion-toggle [(ngModel)]="friday"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Saturday</ion-label>
+              <ion-toggle [(ngModel)]="saturday"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Sunday</ion-label>
+              <ion-toggle [(ngModel)]="sunday"></ion-toggle>
+            </ion-item>
+          </ion-list>
+          <ion-button expand="full" (click)="editing? updatePost(): savePost()" class="ion-margin-top">
+            {{editing ? 'Update': 'Submit'}}
+          </ion-button>
+        </ion-card-content>
+
+      </ion-card>
+
+    </ion-col>
+  </ion-row>
+
 
 </ion-content>

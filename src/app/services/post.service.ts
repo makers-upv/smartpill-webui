@@ -3,9 +3,16 @@ import { HttpClient } from "@angular/common/http";
 
 export interface Post {
   id?: string;
-  pill: string;
+  pill?: string;
   deposit?: string;
-  weight: string;
+  weight?: string;
+  monday?: boolean;
+    tuesday?: boolean;
+    wednesday?: boolean;
+    thursday?: boolean;
+    friday?: boolean;
+    saturday?: boolean;
+    sunday?: boolean;
   image?: {
     formats: {
       small: {
