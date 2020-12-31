@@ -38,7 +38,15 @@ export class PageEditDosisPage implements OnInit {
   }
 
     change(){
-      console.log(this.post.monday);
+      console.clear();
+      console.log("monday: ", this.post.monday);
+      console.log("tuesday: " , this.post.tuesday);
+      console.log("wednesday: " , this.post.wednesday);
+      console.log("thursday: " , this.post.thursday);
+      console.log("friday: " , this.post.friday);
+      console.log("saturday: " , this.post.saturday);
+      console.log("sunday: " , this.post.sunday);
+
     }
     
   saveSchedule(){

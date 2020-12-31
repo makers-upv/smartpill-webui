@@ -22,31 +22,31 @@
           <ion-list>
             <ion-item>
               <ion-label>Monday</ion-label>
-              <ion-toggle [(ngModel)]="monday" (ionChange)="change()"></ion-toggle>
+              <ion-toggle [(ngModel)]="post.monday" (ionChange)="change()"></ion-toggle>
             </ion-item>
             <ion-item>
               <ion-label>Tuesday</ion-label>
-              <ion-toggle [(ngModel)]="tuesday"></ion-toggle>
+              <ion-toggle [(ngModel)]="post.tuesday" (ionChange)="change()"></ion-toggle>
             </ion-item>
             <ion-item>
               <ion-label>Wednesday</ion-label>
-              <ion-toggle [(ngModel)]="wednesday"></ion-toggle>
+              <ion-toggle [(ngModel)]="post.wednesday" (ionChange)="change()"></ion-toggle>
             </ion-item>
             <ion-item>
               <ion-label>Thursday</ion-label>
-              <ion-toggle [(ngModel)]="thursday"></ion-toggle>
+              <ion-toggle [(ngModel)]="post.thursday" (ionChange)="change()"></ion-toggle>
             </ion-item>
             <ion-item>
               <ion-label>Friday</ion-label>
-              <ion-toggle [(ngModel)]="friday"></ion-toggle>
+              <ion-toggle [(ngModel)]="post.friday" (ionChange)="change()"></ion-toggle>
             </ion-item>
             <ion-item>
               <ion-label>Saturday</ion-label>
-              <ion-toggle [(ngModel)]="saturday"></ion-toggle>
+              <ion-toggle [(ngModel)]="post.saturday" (ionChange)="change()"></ion-toggle>
             </ion-item>
             <ion-item>
               <ion-label>Sunday</ion-label>
-              <ion-toggle [(ngModel)]="sunday"></ion-toggle>
+              <ion-toggle [(ngModel)]="post.sunday" (ionChange)="change()"></ion-toggle>
             </ion-item>
           </ion-list>
           <ion-button expand="full" (click)="editing? updateSchedule(): saveSchedule()" class="ion-margin-top">
