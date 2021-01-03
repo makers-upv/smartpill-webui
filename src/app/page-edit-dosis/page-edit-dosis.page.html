@@ -13,7 +13,6 @@
     <ion-col size-md="6" offset-md="3">
       <ion-card class="ion-padding">
         <ion-card-header>
-          {{editing? 
           Your Schedule
         </ion-card-header>
         <ion-card-content>
@@ -47,8 +46,8 @@
               <ion-toggle [(ngModel)]="post.sunday" (ionChange)="change()"></ion-toggle>
             </ion-item>
           </ion-list>
-          <ion-button expand="full" (click)="editing? updateSchedule(): saveSchedule()" class="ion-margin-top">
-            'Submit'
+          <ion-button expand="full" (click)="morning? updateSchedule(): saveSchedule()" class="ion-margin-top">
+            Submit
           </ion-button>
         </ion-card-content>
 

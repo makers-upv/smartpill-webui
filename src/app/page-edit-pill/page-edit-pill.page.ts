@@ -15,6 +15,8 @@ export class PageEditPillPage implements OnInit {
     weight: "",
   };
 
+  days: boolean;
+
   editing = false;
 
   constructor(

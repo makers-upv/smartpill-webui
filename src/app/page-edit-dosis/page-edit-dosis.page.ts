@@ -10,6 +10,9 @@ import { PostService, Post } from "../services/post.service";
 })
 export class PageEditDosisPage implements OnInit {
  post: Post = {
+    id: "",
+    id2: "",
+    morning: false,
     monday: false,
     tuesday: false,
     wednesday: false,
@@ -19,25 +22,32 @@ export class PageEditDosisPage implements OnInit {
     sunday: false,
   }; 
 
-
   constructor(private postService: PostService,
     private router: Router,
-    private actiavtedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.actiavtedRoute.paramMap.subscribe((paramMap) => {
-      if (paramMap.get("postId")) {
+    
+    this.activatedRoute.paramMap.subscribe((paramMap) => {
+      if (paramMap.get("postId2")) {
         this.postService
-          .getPostById(paramMap.get("postId"))
+          .getPostById2(paramMap.get("postId2"))
           .subscribe((res) => {
             this.post = res;
           });
       }
     });
+    let id = +this.activatedRoute.snapshot.paramMap.get('postId');
   }
 
     change(){
       console.clear();
+      if(this.post.monday || this.post.tuesday || this.post.wednesday || this.post.thursday || this.post.friday || this.post.saturday || this.post.sunday){
+        this.post.morning=true;
+      } else{
+        this.post.morning=false;
+      }
+      console.log("morning: ",this.post.morning);
       console.log("monday: ", this.post.monday);
       console.log("tuesday: " , this.post.tuesday);
       console.log("wednesday: " , this.post.wednesday);
@@ -48,9 +58,22 @@ export class PageEditDosisPage implements OnInit {
 
     }
     
-  saveSchedule(){
+
+    saveSchedule() {
+      this.postService.updateMorning(this.post.id,this.post.morning).subscribe((res) => {
+        console.log(res);
+      });
+      this.postService
+        .createSchedule(this.post.monday, this.post.tuesday, this.post.wednesday, this.post.thursday, this.post.friday, this.post.saturday, this.post.sunday)
+        .subscribe((res) => {
+          console.log(res);
+          this.router.navigate(["/page-config"]);
+        });
+    }
+
+  updateSchedule(){
     this.postService
-      .saveSchedule(this.post.id, {
+      .updateSchedule(this.post.id2, {
         monday: this.post.monday,
         tuesday: this.post.tuesday,
         wednesday: this.post.wednesday,

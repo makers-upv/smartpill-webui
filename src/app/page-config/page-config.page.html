@@ -29,10 +29,6 @@
               <ion-icon slot="start" name="create"></ion-icon>
               Edit
             </ion-button>
-            <ion-button [routerLink]="['/', 'pill','schedule', post.id]" shape="round">
-              <ion-icon slot="start" name="create"></ion-icon>
-              Schedule
-            </ion-button>
             <ion-button (click)="removePost(post.id)" color="danger" shape="round">
               <ion-icon slot="start" name="trash"></ion-icon>
               Delete
@@ -47,6 +43,20 @@
             Weight: {{post.weight}}
           </div>
         </ion-card-content>
+        <div>
+          <hr>
+          <h2>Dosis:</h2>
+          <ion-item *ngIf="post.morning" [routerLink]="['/', 'pill','schedule', post.id, post.id2]" >
+            <ion-icon name="sunny" slot="start"></ion-icon>
+            <ion-label> Mornings.</ion-label>
+            <ion-label *ngIf="post.monday"> M</ion-label>
+          </ion-item>
+          <ion-item *ngIf="!post.morning" [routerLink]="['/', 'pill','schedule', post.id]" >
+            <ion-icon name="sunny" slot="start"></ion-icon>
+            <ion-label> Mornings. Click here to set up your schedule.</ion-label>
+            <ion-label *ngIf="post.monday"> M</ion-label>
+          </ion-item>
+        </div>
       </ion-card>
     </ion-col>
   </ion-row>

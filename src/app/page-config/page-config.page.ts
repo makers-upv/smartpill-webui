@@ -9,9 +9,8 @@ import { PostService, Post } from "../services/post.service";
 })
 export class PageConfigPage implements OnInit {
   posts: Post[] = [];
-
+  
   API = 'http://localhost:1337/pills';
-
   constructor(
     private postService: PostService,
     private alertController: AlertController
@@ -27,6 +26,7 @@ export class PageConfigPage implements OnInit {
   }
 
   ngOnInit() {
+    
     this.loadPosts();
   }
 
