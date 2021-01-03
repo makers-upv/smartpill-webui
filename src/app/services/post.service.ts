@@ -45,9 +45,11 @@ export class PostService {
       weight,
     });
   }
-  updateMorning(id: number, morning:boolean){
-    return this.http.put<Post[]>(`${this.API}/${id}`, morning);
+
+  updateMorning(id: number, post: Post){
+    return this.http.put<Post>(`${this.API}/${id}`, post);
   }
+
   createSchedule(monday: boolean, tuesday: boolean, wednesday: boolean, thursday: boolean, friday: boolean, saturday: boolean, sunday: boolean) {
     
     return this.http.post<Post[]>(this.API2, {

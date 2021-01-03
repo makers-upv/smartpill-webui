@@ -63,8 +63,9 @@ export class PageEditDosisPage implements OnInit {
     
 
     saveSchedule() {
-      this.postService.updateMorning(this.id,this.post.morning).subscribe((res) => {
+      this.postService.updateMorning(this.id,{morning: this.post.morning}).subscribe((res) => {
         console.log(res);
+        console.log(this.id);
       });
       this.postService
         .createSchedule(this.post.monday, this.post.tuesday, this.post.wednesday, this.post.thursday, this.post.friday, this.post.saturday, this.post.sunday)
