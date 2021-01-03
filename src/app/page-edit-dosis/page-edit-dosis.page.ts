@@ -22,6 +22,7 @@ export class PageEditDosisPage implements OnInit {
     sunday: false,
   }; 
 
+  id:number;
   constructor(private postService: PostService,
     private router: Router,
     private activatedRoute: ActivatedRoute) { }
@@ -38,6 +39,8 @@ export class PageEditDosisPage implements OnInit {
       }
     });
     let id = +this.activatedRoute.snapshot.paramMap.get('postId');
+    console.log(this.activatedRoute.snapshot.paramMap.get('postId'));
+    this.id=id;
   }
 
     change(){
@@ -60,7 +63,7 @@ export class PageEditDosisPage implements OnInit {
     
 
     saveSchedule() {
-      this.postService.updateMorning(this.post.id,this.post.morning).subscribe((res) => {
+      this.postService.updateMorning(this.id,this.post.morning).subscribe((res) => {
         console.log(res);
       });
       this.postService
