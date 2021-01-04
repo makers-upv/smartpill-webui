@@ -21,6 +21,7 @@ export class PageConfigPage implements OnInit {
     this.postService.getPosts().subscribe(
       (res) => {
         this.posts = res;
+        this.posts2 = res;
       },
       (err) => console.log(err)
     );

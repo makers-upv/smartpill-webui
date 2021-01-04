@@ -21,6 +21,7 @@ export class PageEditDosisPage implements OnInit {
     saturday: false,
     sunday: false,
   }; 
+  
   id:number;
   constructor(private postService: PostService,
     private router: Router,
