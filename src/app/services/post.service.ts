@@ -3,18 +3,10 @@ import { HttpClient } from "@angular/common/http";
 
 export interface Post {
   id?: string;
-  id2?: string;
   pill?: string;
   deposit?: string;
   weight?: string;
   morning?: boolean;
-  monday?: boolean;
-    tuesday?: boolean;
-    wednesday?: boolean;
-    thursday?: boolean;
-    friday?: boolean;
-    saturday?: boolean;
-    sunday?: boolean;
   image?: {
     formats: {
       small: {
@@ -22,6 +14,17 @@ export interface Post {
       };
     };
   };
+}
+
+export interface Post2 {
+  id?: string;
+  monday?: boolean;
+    tuesday?: boolean;
+    wednesday?: boolean;
+    thursday?: boolean;
+    friday?: boolean;
+    saturday?: boolean;
+    sunday?: boolean;
 }
 
 @Injectable({
@@ -52,7 +55,7 @@ export class PostService {
 
   createSchedule(monday: boolean, tuesday: boolean, wednesday: boolean, thursday: boolean, friday: boolean, saturday: boolean, sunday: boolean) {
     
-    return this.http.post<Post[]>(this.API2, {
+    return this.http.post<Post2[]>(this.API2, {
       monday,
       tuesday,
       wednesday,
@@ -71,8 +74,8 @@ export class PostService {
     return this.http.get<Post>(`${this.API}/${id}`);
   }
 
-  getPostById2(id2: string) {
-    return this.http.get<Post>(`${this.API2}/${id2}`);
+  getPostById2(id: string) {
+    return this.http.get<Post2>(`${this.API2}/${id}`);
   }
 
 
@@ -80,7 +83,7 @@ export class PostService {
     return this.http.put(`${this.API}/${id}`, post);
   }
 
-  updateSchedule(id2: string, post: Post) {
+  updateSchedule(id2: string, post: Post2) {
     return this.http.put(`${this.API2}/${id2}`, post);
   }
 }

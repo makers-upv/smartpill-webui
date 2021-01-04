@@ -44,7 +44,7 @@ const routes: Routes = [
     loadChildren:() => import('./page-edit-dosis/page-edit-dosis.module').then( m => m.PageEditDosisPageModule)
   },
   {
-    path: 'pill/schedule/:postId/:postId2',
+    path: 'pill/schedule/edit/:postId2',
     loadChildren:() => import('./page-edit-dosis/page-edit-dosis.module').then( m => m.PageEditDosisPageModule)
   },
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from "@ionic/angular";
-import { PostService, Post } from "../services/post.service";
+import { PostService, Post, Post2 } from "../services/post.service";
 
 @Component({
   selector: 'app-page-config',
@@ -9,6 +9,7 @@ import { PostService, Post } from "../services/post.service";
 })
 export class PageConfigPage implements OnInit {
   posts: Post[] = [];
+  posts2: Post2[] = [];
   
   API = 'http://localhost:1337/pills';
   constructor(

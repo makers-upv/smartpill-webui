@@ -1,6 +1,6 @@
 import { Router, ActivatedRoute } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
-import { PostService, Post } from "../services/post.service";
+import { PostService, Post, Post2 } from "../services/post.service";
 
 
 @Component({
@@ -9,10 +9,10 @@ import { PostService, Post } from "../services/post.service";
   styleUrls: ['./page-edit-dosis.page.scss'],
 })
 export class PageEditDosisPage implements OnInit {
- post: Post = {
-    id: "",
-    id2: "",
-    morning: false,
+ post1: Post = {
+   morning: false,
+ }
+  post: Post2 = {
     monday: false,
     tuesday: false,
     wednesday: false,
@@ -21,7 +21,6 @@ export class PageEditDosisPage implements OnInit {
     saturday: false,
     sunday: false,
   }; 
-
   id:number;
   constructor(private postService: PostService,
     private router: Router,
@@ -38,19 +37,24 @@ export class PageEditDosisPage implements OnInit {
           });
       }
     });
-    let id = +this.activatedRoute.snapshot.paramMap.get('postId');
-    console.log(this.activatedRoute.snapshot.paramMap.get('postId'));
-    this.id=id;
+    this.activatedRoute.paramMap.subscribe((paramMap) => {
+      if (paramMap.get("postId")) {
+        let id = +this.activatedRoute.snapshot.paramMap.get('postId');
+        console.log(this.activatedRoute.snapshot.paramMap.get('postId'));
+         this.id=id;
+      }
+    });
+    
   }
 
     change(){
       console.clear();
       if(this.post.monday || this.post.tuesday || this.post.wednesday || this.post.thursday || this.post.friday || this.post.saturday || this.post.sunday){
-        this.post.morning=true;
+        this.post1.morning=true;
       } else{
-        this.post.morning=false;
+        this.post1.morning=false;
       }
-      console.log("morning: ",this.post.morning);
+      console.log("morning: ",this.post1.morning);
       console.log("monday: ", this.post.monday);
       console.log("tuesday: " , this.post.tuesday);
       console.log("wednesday: " , this.post.wednesday);
@@ -63,7 +67,7 @@ export class PageEditDosisPage implements OnInit {
     
 
     saveSchedule() {
-      this.postService.updateMorning(this.id,{morning: this.post.morning}).subscribe((res) => {
+      this.postService.updateMorning(this.id,{morning: this.post1.morning}).subscribe((res) => {
         console.log(res);
         console.log(this.id);
       });
@@ -77,7 +81,7 @@ export class PageEditDosisPage implements OnInit {
 
   updateSchedule(){
     this.postService
-      .updateSchedule(this.post.id2, {
+      .updateSchedule(this.post.id, {
         monday: this.post.monday,
         tuesday: this.post.tuesday,
         wednesday: this.post.wednesday,
