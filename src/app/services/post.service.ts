@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 
 export interface Post {
   id?: string;
+  idm?: string;
   pill?: string;
   deposit?: string;
   weight?: string;
@@ -41,16 +42,25 @@ export class PostService {
     return this.http.get<Post[]>(this.API);
   }
 
+  
+  getPosts2() {
+    return this.http.get<Post2[]>(this.API2);
+  }
+
+  updateMorning(id: number, post: Post){
+    return this.http.put<Post>(`${this.API}/${id}`, post);
+  }
+
+  updateIdm(idm: string,id: number){
+    return this.http.put<Post>(`${this.API}/${id}`, idm);
+  }
+
   createPost(pill: string, deposit: string, weight: string) {
     return this.http.post<Post[]>(this.API, {
       pill,
       deposit,
       weight,
     });
-  }
-
-  updateMorning(id: number, post: Post){
-    return this.http.put<Post>(`${this.API}/${id}`, post);
   }
 
   createSchedule(monday: boolean, tuesday: boolean, wednesday: boolean, thursday: boolean, friday: boolean, saturday: boolean, sunday: boolean) {
@@ -83,7 +93,7 @@ export class PostService {
     return this.http.put(`${this.API}/${id}`, post);
   }
 
-  updateSchedule(id2: string, post: Post2) {
-    return this.http.put(`${this.API2}/${id2}`, post);
+  updateSchedule(id: string, post: Post2) {
+    return this.http.put(`${this.API2}/${id}`, post);
   }
 }

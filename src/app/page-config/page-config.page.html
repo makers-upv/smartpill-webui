@@ -44,10 +44,10 @@
         <div>
           <hr>
           <h2>Dosis:</h2>
-          <ion-item *ngIf="post.morning" [routerLink]="['/', 'pill','schedule','edit', posts2.id]" >
+          <ion-item *ngIf="post.morning" [routerLink]="['/', 'pill','schedule','edit', post2.id]" >
             <ion-icon name="sunny" slot="start"></ion-icon>
             <ion-label> Mornings</ion-label>
-            <ion-label *ngIf="posts2.monday"> M</ion-label>
+            <ion-label *ngIf="post2.monday"> M</ion-label>
           </ion-item>
           <ion-item *ngIf="!post.morning" [routerLink]="['/', 'pill','schedule', post.id]" >
             <ion-icon name="sunny" slot="start"></ion-icon>

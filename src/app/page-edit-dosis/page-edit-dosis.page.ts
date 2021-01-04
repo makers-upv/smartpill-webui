@@ -43,6 +43,7 @@ export class PageEditDosisPage implements OnInit {
         let id = +this.activatedRoute.snapshot.paramMap.get('postId');
         console.log(this.activatedRoute.snapshot.paramMap.get('postId'));
          this.id=id;
+         
       }
     });
     
@@ -76,7 +77,8 @@ export class PageEditDosisPage implements OnInit {
         .createSchedule(this.post.monday, this.post.tuesday, this.post.wednesday, this.post.thursday, this.post.friday, this.post.saturday, this.post.sunday)
         .subscribe((res) => {
           console.log(res);
-          this.router.navigate(["/page-config"]);
+          
+        this.router.navigate(["/page-config"]);
         });
     }
 

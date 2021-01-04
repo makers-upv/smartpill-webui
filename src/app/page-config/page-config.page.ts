@@ -9,7 +9,7 @@ import { PostService, Post, Post2 } from "../services/post.service";
 })
 export class PageConfigPage implements OnInit {
   posts: Post[] = [];
-  posts2: Post2[] = [];
+  post2: Post2[] = [];
   
   API = 'http://localhost:1337/pills';
   constructor(
@@ -21,7 +21,12 @@ export class PageConfigPage implements OnInit {
     this.postService.getPosts().subscribe(
       (res) => {
         this.posts = res;
-        this.posts2 = res;
+      },
+      (err) => console.log(err)
+    );
+    this.postService.getPosts2().subscribe(
+      (res) => {
+        this.post2 = res;
       },
       (err) => console.log(err)
     );
@@ -30,6 +35,7 @@ export class PageConfigPage implements OnInit {
   ngOnInit() {
     
     this.loadPosts();
+    
   }
 
   ionViewWillEnter() {
