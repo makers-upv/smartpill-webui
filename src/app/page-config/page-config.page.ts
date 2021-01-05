@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from "@ionic/angular";
-import { PostService, Post, Post2 } from "../services/post.service";
+import { PostService, Post} from "../services/post.service";
 
 @Component({
   selector: 'app-page-config',
@@ -9,7 +9,6 @@ import { PostService, Post, Post2 } from "../services/post.service";
 })
 export class PageConfigPage implements OnInit {
   posts: Post[] = [];
-  post2: Post2[] = [];
   
   API = 'http://localhost:1337/pills';
   constructor(
@@ -21,12 +20,6 @@ export class PageConfigPage implements OnInit {
     this.postService.getPosts().subscribe(
       (res) => {
         this.posts = res;
-      },
-      (err) => console.log(err)
-    );
-    this.postService.getPosts2().subscribe(
-      (res) => {
-        this.post2 = res;
       },
       (err) => console.log(err)
     );
@@ -42,6 +35,7 @@ export class PageConfigPage implements OnInit {
     this.loadPosts();
   }
 
+  
   async removePost(id: string) {
     const alert = await this.alertController.create({
       header: "Alert",

@@ -3,11 +3,12 @@ import { HttpClient } from "@angular/common/http";
 
 export interface Post {
   id?: string;
-  idm?: string;
   pill?: string;
   deposit?: string;
   weight?: string;
   morning?: boolean;
+  afternoon?:boolean;
+  night?:boolean;
   image?: {
     formats: {
       small: {
@@ -15,17 +16,6 @@ export interface Post {
       };
     };
   };
-}
-
-export interface Post2 {
-  id?: string;
-  monday?: boolean;
-    tuesday?: boolean;
-    wednesday?: boolean;
-    thursday?: boolean;
-    friday?: boolean;
-    saturday?: boolean;
-    sunday?: boolean;
 }
 
 @Injectable({
@@ -36,43 +26,18 @@ export class PostService {
   constructor(private http: HttpClient) {}
 
   API = 'http://localhost:1337/pills';
-  API2= 'http://localhost:1337/schedules';
 
   getPosts() {
     return this.http.get<Post[]>(this.API);
   }
-
-  
-  getPosts2() {
-    return this.http.get<Post2[]>(this.API2);
-  }
-
-  updateMorning(id: number, post: Post){
-    return this.http.put<Post>(`${this.API}/${id}`, post);
-  }
-
-  updateIdm(idm: string,id: number){
-    return this.http.put<Post>(`${this.API}/${id}`, idm);
-  }
-
-  createPost(pill: string, deposit: string, weight: string) {
+  createPost(pill: string, deposit: string, weight: string, morning: boolean, afternoon: boolean, night: boolean) {
     return this.http.post<Post[]>(this.API, {
       pill,
       deposit,
       weight,
-    });
-  }
-
-  createSchedule(monday: boolean, tuesday: boolean, wednesday: boolean, thursday: boolean, friday: boolean, saturday: boolean, sunday: boolean) {
-    
-    return this.http.post<Post2[]>(this.API2, {
-      monday,
-      tuesday,
-      wednesday,
-      thursday,
-      friday,
-      saturday,
-      sunday,
+      morning,
+      afternoon,
+      night,
     });
   }
 
@@ -84,16 +49,8 @@ export class PostService {
     return this.http.get<Post>(`${this.API}/${id}`);
   }
 
-  getPostById2(id: string) {
-    return this.http.get<Post2>(`${this.API2}/${id}`);
-  }
-
-
   updatePost(id: string, post: Post) {
     return this.http.put(`${this.API}/${id}`, post);
   }
 
-  updateSchedule(id: string, post: Post2) {
-    return this.http.put(`${this.API2}/${id}`, post);
-  }
 }

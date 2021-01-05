@@ -13,9 +13,12 @@ export class PageEditPillPage implements OnInit {
     pill: "",
     deposit: "",
     weight: "",
+    morning: null,
+    afternoon: null,
+    night: null,
   };
 
-  days: boolean;
+  time: string []=[]
 
   editing = false;
 
@@ -38,9 +41,35 @@ export class PageEditPillPage implements OnInit {
     });
   }
 
+  onChange(time: string){
+    
+    if(this.time.includes('morning')){
+      this.post.morning=true;
+      
+    }else{
+      this.post.morning=false;
+    }
+
+    if(this.time.includes('afternoon')){
+      this.post.afternoon=true;
+    }else{
+      this.post.afternoon=false;
+    }
+
+    if(this.time.includes('night')){
+      this.post.night=true;
+    }else{
+      this.post.night=false;
+    }
+    console.log("time: ",this.time);
+    console.log("morning: ",this.post.morning);
+    console.log("afternoon: ",this.post.afternoon);
+    console.log("night: ",this.post.night);
+  }
+
   savePost() {
     this.postService
-      .createPost(this.post.pill, this.post.deposit, this.post.weight)
+      .createPost(this.post.pill, this.post.deposit, this.post.weight, this.post.morning,this.post.afternoon,this.post.night)
       .subscribe((res) => {
         console.log(res);
         this.router.navigate(["/page-config"]);
@@ -53,6 +82,9 @@ export class PageEditPillPage implements OnInit {
         pill: this.post.pill,
         deposit:this.post.deposit,
         weight: this.post.weight,
+        morning: this.post.morning,
+        afternoon: this.post.afternoon,
+        night: this.post.night,
       })
       .subscribe((res) => {
         console.log(res);

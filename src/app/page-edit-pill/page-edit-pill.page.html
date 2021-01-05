@@ -31,6 +31,14 @@
             <ion-label position="floating">Weight: </ion-label>
             <ion-textarea [(ngModel)]="post.weight"></ion-textarea>
           </ion-item>
+          <ion-item>
+            <ion-label>Click here to pick time of day.</ion-label>
+            <ion-select [(ngModel)]="time" (ionChange)="onChange()" multiple="true" cancelText="Cancel" okText="Submit">
+              <ion-select-option value="morning">Morning</ion-select-option>
+              <ion-select-option value="afternoon">Afternoon</ion-select-option>
+              <ion-select-option value="night">Night</ion-select-option>
+            </ion-select>
+          </ion-item>
           <ion-button expand="full" (click)="editing? updatePost(): savePost()" class="ion-margin-top">
             {{editing ? 'Update': 'Submit'}}
           </ion-button>
