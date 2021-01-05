@@ -21,7 +21,12 @@
         <ion-card-content>
           <ion-item>
             <ion-label position="floating">nº Deposit: </ion-label>
-            <ion-input [(ngModel)]="post.deposit"></ion-input>
+            <ion-select [(ngModel)]="post.deposit"  cancelText="Cancel" okText="Submit">
+              <ion-select-option value="1">1</ion-select-option>
+              <ion-select-option value="2">2</ion-select-option>
+              <ion-select-option value="3">3</ion-select-option>
+              <ion-select-option value="4">4</ion-select-option>
+            </ion-select>
           </ion-item>
           <ion-item>
             <ion-label position="floating">Pill name: </ion-label>
@@ -32,7 +37,7 @@
             <ion-textarea [(ngModel)]="post.weight"></ion-textarea>
           </ion-item>
           <ion-item>
-            <ion-label>Click here to pick time of day.</ion-label>
+            <ion-label position="floating">Click here to pick time of day.</ion-label>
             <ion-select [(ngModel)]="time" (ionChange)="onChange()" multiple="true" cancelText="Cancel" okText="Submit">
               <ion-select-option value="morning">Morning</ion-select-option>
               <ion-select-option value="afternoon">Afternoon</ion-select-option>
