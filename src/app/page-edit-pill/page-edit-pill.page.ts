@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { PostService, Post } from "../services/post.service";
+
+import { PostService, Post, Dep } from "../services/post.service";
 import { Router, ActivatedRoute } from "@angular/router";
+import { AlertController } from "@ionic/angular";
 
 @Component({
   selector: 'app-page-edit-pill',
@@ -18,6 +20,12 @@ export class PageEditPillPage implements OnInit {
     night: null,
   };
 
+  dep: Dep = {
+    n1: null,
+    n2: null,
+    n3: null,
+    n4: null,
+  }
   time: string []=[]
 
   editing = false;
@@ -25,7 +33,8 @@ export class PageEditPillPage implements OnInit {
   constructor(
     private postService: PostService,
     private router: Router,
-    private actiavtedRoute: ActivatedRoute
+    private actiavtedRoute: ActivatedRoute,
+    private alertController: AlertController
   ) {}
 
   ngOnInit() {
@@ -41,6 +50,41 @@ export class PageEditPillPage implements OnInit {
     });
   }
 
+  onChangeD(){
+    if(!this.dep.n1 && this.post.deposit==='1'){
+      this.dep.n1=true;
+    }
+
+    if(!this.dep.n2 && this.post.deposit==='2'){
+      this.dep.n2=true;
+    }
+    if(!this.dep.n3 && this.post.deposit==='3'){
+      this.dep.n3=true;
+    }
+    if(!this.dep.n4 && this.post.deposit==='4'){
+      this.dep.n4=true;
+    }
+
+    if(this.dep.n1 && this.post.deposit==='1'){
+      alert();
+      this.post.deposit=null;
+    }
+
+    if(this.dep.n2 && this.post.deposit==='2'){
+      alert();
+      this.post.deposit=null;
+    }
+    if(this.dep.n3 && this.post.deposit==='3'){
+      alert();
+      this.post.deposit=null;
+    }
+    if(this.dep.n4 && this.post.deposit==='4'){
+      alert();
+      this.post.deposit=null;
+    }
+    console.log("deposit: ", this.post.deposit);
+    console.log("dep: ",this.dep);
+  }
   onChange(time: string){
     
     if(this.time.includes('morning')){
@@ -65,6 +109,17 @@ export class PageEditPillPage implements OnInit {
     console.log("morning: ",this.post.morning);
     console.log("afternoon: ",this.post.afternoon);
     console.log("night: ",this.post.night);
+  }
+
+  alert(){
+    const alert = this.alertController.create({
+      header: "Alert",
+      subHeader: "The deposit you selected is already occupied",
+      message: "Select another one",
+      buttons: [
+        "Okay"
+      ],
+    });
   }
 
   savePost() {

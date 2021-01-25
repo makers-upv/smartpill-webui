@@ -21,7 +21,7 @@
         <ion-card-content>
           <ion-item>
             <ion-label position="floating">nº Deposit: </ion-label>
-            <ion-select [(ngModel)]="post.deposit"  cancelText="Cancel" okText="Submit">
+            <ion-select [(ngModel)]="post.deposit" (ionChange)="onchangeD()" cancelText="Cancel" okText="Submit">
               <ion-select-option value="1">1</ion-select-option>
               <ion-select-option value="2">2</ion-select-option>
               <ion-select-option value="3">3</ion-select-option>

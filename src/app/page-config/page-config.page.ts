@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from "@ionic/angular";
-import { PostService, Post} from "../services/post.service";
+import { PostService, Post, Dep, Log} from "../services/post.service";
 
 @Component({
   selector: 'app-page-config',
@@ -9,6 +9,8 @@ import { PostService, Post} from "../services/post.service";
 })
 export class PageConfigPage implements OnInit {
   posts: Post[] = [];
+  dep: Dep[] = [];
+  log: Log[]=[];
   
   API = 'http://localhost:1337/pills';
   constructor(
@@ -20,6 +22,20 @@ export class PageConfigPage implements OnInit {
     this.postService.getPosts().subscribe(
       (res) => {
         this.posts = res;
+      },
+      (err) => console.log(err)
+    );
+    this.postService.getDeposit().subscribe(
+      (res) => {
+        this.dep = res;
+        console.log(this.dep);
+      },
+      (err) => console.log(err)
+    );
+    this.postService.getLogs().subscribe(
+      (res) => {
+        this.log = res;
+        console.log(this.log);
       },
       (err) => console.log(err)
     );
