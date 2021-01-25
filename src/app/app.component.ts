@@ -23,11 +23,6 @@ export class AppComponent implements OnInit {
       icon: 'bar-chart'
     },
     {
-      title: 'Patients',
-      url: '/page-patients',
-      icon: 'person'
-    },
-    {
       title: 'Configuration',
       url: '/page-config',
       icon: 'construct'

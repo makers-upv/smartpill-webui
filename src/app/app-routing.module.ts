@@ -12,10 +12,6 @@ const routes: Routes = [
     loadChildren: () => import('./page-config/page-config.module').then( m => m.PageConfigPageModule)
   },
   {
-    path: 'page-patients',
-    loadChildren: () => import('./page-patients/page-patients.module').then( m => m.PagePatientsPageModule)
-  },
-  {
     path: 'page-status',
     loadChildren: () => import('./page-status/page-status.module').then( m => m.PageStatusPageModule)
   },
