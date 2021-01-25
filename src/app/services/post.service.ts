@@ -21,7 +21,7 @@ export interface Post {
 export interface Log {
   pills: string;
   date: any;
-  time: any;
+  time: string;
   id: string;
   patient_name: string;
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from "@ionic/angular";
+import { PostService, Log} from "../services/post.service";
 
 @Component({
   selector: 'app-page-log',
@@ -6,10 +8,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-log.page.scss'],
 })
 export class PageLogPage implements OnInit {
+  log: Log[]=[];
 
-  constructor() { }
+  constructor(
+    private postService: PostService,
+    private alertController: AlertController
+  ) {}
 
-  ngOnInit() {
+  loadPosts() {
+    this.postService.getLogs().subscribe(
+      (res) => {
+        this.log = res;
+        console.log(this.log);
+      },
+      (err) => console.log(err)
+    );
+    
   }
 
+
+  ngOnInit() {
+    
+    this.loadPosts();
+    
+  }
+
+  ionViewWillEnter() {
+    this.loadPosts();
+  }
+
+  
 }
