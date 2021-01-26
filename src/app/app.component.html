@@ -4,7 +4,7 @@
       <ion-content>
         <ion-list id="inbox-list">
           <img src="/assets/logo.png" alt="" height="64">
-          <ion-note>Just an Smart Pills Dispenser</ion-note>
+          <ion-note>Just an Smart Pill Dispenser</ion-note>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
