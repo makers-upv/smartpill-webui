@@ -21,7 +21,7 @@
         <ion-card-content>
           <ion-item>
             <ion-label position="floating">nº Deposit: </ion-label>
-            <ion-select [(ngModel)]="post.deposit" (ionChange)="onchangeD()" cancelText="Cancel" okText="Submit">
+            <ion-select [(ngModel)]="post.deposit" (ionChange)="onChange($event)" cancelText="Cancel" okText="Submit">
               <ion-select-option value="1">1</ion-select-option>
               <ion-select-option value="2">2</ion-select-option>
               <ion-select-option value="3">3</ion-select-option>
@@ -38,7 +38,7 @@
           </ion-item>
           <ion-item>
             <ion-label position="floating">Click here to pick time of day.</ion-label>
-            <ion-select [(ngModel)]="time" (ionChange)="onChange()" multiple="true" cancelText="Cancel" okText="Submit">
+            <ion-select [(ngModel)]="time" (ionChange)="onChange($event)" multiple="true" cancelText="Cancel" okText="Submit">
               <ion-select-option value="morning">Morning</ion-select-option>
               <ion-select-option value="afternoon">Afternoon</ion-select-option>
               <ion-select-option value="night">Night</ion-select-option>
